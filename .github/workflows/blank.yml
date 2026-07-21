@@ -8,11 +8,13 @@ jobs:
         run: echo "building..."
   test:
     runs-on: ubuntu-22.04
+    needs: build
     steps:
       - name: test
         run: echo "testing"
   deploy:
     runs-on: ubuntu-22.04
+    needs: test
     steps:
       - name: deploy
         run: echo "deploying"
