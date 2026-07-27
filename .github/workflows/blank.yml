@@ -11,9 +11,9 @@ on:
           - dev
           - test
           - uat
-        artifact_tag:
-          description: select git tag to deploy
-          required: true
+      artifact_tag:
+        description: select git tag to deploy
+        required: true
 jobs:
   test-input:
     runs-on: ubuntu-latest
