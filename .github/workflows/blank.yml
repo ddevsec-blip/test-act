@@ -1,23 +1,10 @@
 name: test-inputs
-on: 
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: Select Environment
-        required: true
-        default: dev
-        type: choice
-        options:
-          - dev
-          - test
-          - uat
-      artifact_tag:
-        description: select git tag to deploy
-        required: true
+on: push
 jobs:
-  test-input:
+  test-context:
     runs-on: ubuntu-latest
     steps:
-      - name: deploy the application
-        run: echo " deploying the ${{ inputs.artifact_tag}} app into ${{ inputs.environment}}"
- 
+      - name: using context variables
+        run: |
+          echo "this workflow triggered by ${{ github.actor}}
+          echo "the repo name is ${{  github.repository}}
