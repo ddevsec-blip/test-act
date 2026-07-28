@@ -2,7 +2,7 @@ name: test-if
 on: 
   push:
     branches:
-      - dev
+      - main
       - test
 jobs:
   test:
