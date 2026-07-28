@@ -1,15 +1,11 @@
-name: test-inputs
+name: test-outputs
 on: push
 jobs:
-  test-context:
+  job1:
     runs-on: ubuntu-latest
     steps:
-      - name: using context variables
-        run: |
-          echo "this workflow triggered by ${{ github.actor}}
-          echo "the repo name is ${{  github.repository}}
-          echo " the branch is ${{ github.ref_name }}"
-      - name: print all variables in github
-        run: echo "${{ toJson(github) }}"
-      - name: print latest commit id
-        run: echo "$GITHUB_SHA"
+      - name: step1
+        id: step1
+        run: echo "version=0.1" >> $GITHUB_OUTPUT
+      - name: step2
+        run: echo "the version ${{ steps.step1.outputs.version }}"
